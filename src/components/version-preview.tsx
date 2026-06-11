@@ -1,4 +1,4 @@
-import { buildDiffBlocks } from '../lib/diff'
+import { buildRenderBlocks } from '../lib/diff/engine'
 import type { PreviewComparison } from '../lib/versioning'
 import DiffBlockRenderer from './diff-block-renderer'
 
@@ -7,7 +7,7 @@ interface VersionPreviewProps {
 }
 
 export default function VersionPreview({ comparison }: VersionPreviewProps) {
-  const blocks = buildDiffBlocks(comparison.leftDoc, comparison.rightDoc)
+  const blocks = buildRenderBlocks(comparison.leftDoc, comparison.rightDoc)
 
   return (
     <div className="preview-shell">
@@ -19,7 +19,7 @@ export default function VersionPreview({ comparison }: VersionPreviewProps) {
 
       <div className="preview-document">
         {blocks.map((block, index) => (
-          <DiffBlockRenderer key={`${block.type}-${index}`} block={block} />
+          <DiffBlockRenderer key={`${block.kind}-${index}`} block={block} />
         ))}
         {blocks.length === 0 && <div className="diff-empty">当前内容与比较版本没有差异。</div>}
       </div>

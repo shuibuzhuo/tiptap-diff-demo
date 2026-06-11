@@ -1,12 +1,6 @@
 import { diffChars, diffLines } from 'diff'
-
-export interface TiptapNode {
-  type?: string
-  text?: string
-  attrs?: Record<string, unknown>
-  marks?: Array<Record<string, unknown>>
-  content?: TiptapNode[]
-}
+export type { TiptapNode } from './diff/types'
+import type { TiptapNode } from './diff/types'
 
 export interface DiffLine {
   type: 'added' | 'removed' | 'unchanged'
