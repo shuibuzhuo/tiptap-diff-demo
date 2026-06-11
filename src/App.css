@@ -71,6 +71,39 @@
   font-size: 13px;
 }
 
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.save-version-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #2f80ed;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease,
+    box-shadow 0.18s ease;
+  box-shadow: 0 6px 16px rgba(47, 128, 237, 0.22);
+}
+
+.save-version-button:hover {
+  transform: translateY(-1px);
+}
+
+.save-version-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .version-list {
   display: flex;
   flex-direction: column;
@@ -139,43 +172,85 @@
   padding-left: 24px;
 }
 
-.diff-list {
+.preview-shell {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 16px;
-  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
-  font-size: 13px;
-  line-height: 1.6;
+  gap: 16px;
+  padding: 18px;
 }
 
-.diff-line {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+.preview-meta {
+  display: inline-flex;
+  align-items: center;
   gap: 10px;
-  padding: 8px 10px;
-  border-radius: 12px;
+  color: #75695c;
+  font-size: 13px;
+}
+
+.preview-arrow {
+  color: #b29a7d;
+}
+
+.preview-document {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fffdf9;
+  box-shadow: inset 0 0 0 1px rgba(112, 85, 40, 0.08);
+}
+
+.preview-block {
+  margin: 0;
+  color: #2a241c;
+  line-height: 1.8;
   white-space: pre-wrap;
 }
 
-.diff-line.added {
-  background: #ebfff2;
-  color: #19663a;
+.preview-block.heading {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.diff-line.removed {
-  background: #fff1ef;
-  color: #a03e33;
+.preview-block.codeBlock {
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #f7f5ef;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
-.diff-line.unchanged {
-  background: #f5f1e8;
-  color: #7a6e61;
+.preview-block.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.prefix {
-  display: inline-block;
-  text-align: center;
+.list-bullet {
+  color: #8c7a63;
+}
+
+.preview-block.added,
+.preview-block.removed,
+.preview-block.modified {
+  border-radius: 10px;
+}
+
+.segment.added {
+  background: rgba(76, 139, 245, 0.22);
+  color: #1f5fbf;
+}
+
+.segment.removed {
+  color: #9c9388;
+  text-decoration: line-through;
+}
+
+.segment.unchanged {
+  color: inherit;
 }
 
 .diff-empty {
