@@ -2,10 +2,6 @@
 
 一个基于 `React + Vite + Tiptap` 的版本对比示例项目。
 
-在线预览：
-
-- GitHub Pages: https://shuibuzhuo.github.io/tiptap-diff-demo/
-
 核心体验：
 
 - 左侧选择文档和历史版本
